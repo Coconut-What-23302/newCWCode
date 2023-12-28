@@ -229,8 +229,8 @@ public class RobotHardware
         switch(macro) {
             case INTAKEPOS:
             case DRIVEUNDERCENTERPOS:
-                clawArm.setTargetPosition(645);
-                clawArm.setPower(0.45);
+                clawArm.setTargetPosition(640);
+                clawArm.setPower(0.2);
                 clawWrist.setPosition(0.3972);
                 break;
             case ROW1AUTOPOS:
