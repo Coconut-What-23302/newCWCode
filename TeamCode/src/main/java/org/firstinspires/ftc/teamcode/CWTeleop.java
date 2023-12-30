@@ -53,7 +53,7 @@ public class CWTeleop extends LinearOpMode {
 
 
 
-        //driving
+            //driving
 
 
             // drive inputs
@@ -66,7 +66,7 @@ public class CWTeleop extends LinearOpMode {
 
 
 
-           // mechanum drive code
+            // mechanum drive code
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
             double frontLeftPower = (y + x + rx) / denominator;
             double backLeftPower = (y - x + rx) / denominator;
@@ -76,9 +76,11 @@ public class CWTeleop extends LinearOpMode {
 
 
 
-            double hangPivotPower = gamepad2.left_stick_y * 0.5;
+            double hangPivotPower = gamepad2.left_stick_y * 0.3;
 
-            // power constant
+            // power
+
+
             robot.frontLeft.setPower(frontLeftPower * .75);
             robot.backLeft.setPower(backLeftPower * .75);
             robot.frontRight.setPower(frontRightPower * .75);
@@ -240,8 +242,7 @@ public class CWTeleop extends LinearOpMode {
             telemetry.update();
 
 
-            }
         }
     }
-
+}
 

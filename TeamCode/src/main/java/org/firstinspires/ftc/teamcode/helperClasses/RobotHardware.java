@@ -45,9 +45,9 @@ public class RobotHardware
 
     public class ClawPos {
         public static final double RIGHT_OPEN = 0.75;
-         public static final double LEFT_OPEN =  0.67;
+        public static final double LEFT_OPEN =  0.67;
         public static final double RIGHT_CLOSE = 0.45;
-         public static final double LEFT_CLOSE = 1.0;
+        public static final double LEFT_CLOSE = 1.0;
     }
 
 
@@ -89,7 +89,7 @@ public class RobotHardware
 
         // Set direction for all motors
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        backLeft.setDirection(DcMotor.Direction.REVERSE);
+        backLeft.setDirection(DcMotor.Direction.FORWARD);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
         backRight.setDirection(DcMotor.Direction.FORWARD);
         clawArm.setDirection(DcMotor.Direction.FORWARD);
@@ -183,19 +183,19 @@ public class RobotHardware
      * @param pos true = open, false = close
      */
     public void clawPosSingle (boolean side, boolean pos) {
-    if(side == true) {
-        if(pos == true) {
-            leftClaw.setPosition(ClawPos.LEFT_OPEN);
-        } else if(pos == false) {
-            leftClaw.setPosition(ClawPos.LEFT_CLOSE);
+        if(side == true) {
+            if(pos == true) {
+                leftClaw.setPosition(ClawPos.LEFT_OPEN);
+            } else if(pos == false) {
+                leftClaw.setPosition(ClawPos.LEFT_CLOSE);
+            }
+        } else if(side == false) {
+            if(pos == true) {
+                rightClaw.setPosition(ClawPos.RIGHT_OPEN);
+            } else if(pos == false) {
+                rightClaw.setPosition(ClawPos.RIGHT_CLOSE);
+            }
         }
-    } else if(side == false) {
-        if(pos == true) {
-            rightClaw.setPosition(ClawPos.RIGHT_OPEN);
-        } else if(pos == false) {
-            rightClaw.setPosition(ClawPos.RIGHT_CLOSE);
-    }
-    }
 
 
     }
@@ -205,13 +205,13 @@ public class RobotHardware
      * @param position true = open, false = close
      */
     public void clawPosBoth (boolean position) {
-       if(position) {
-           leftClaw.setPosition(ClawPos.LEFT_OPEN);
-           rightClaw.setPosition(ClawPos.RIGHT_OPEN);
-       } else if(!position) {
-           leftClaw.setPosition(ClawPos.LEFT_CLOSE);
-           rightClaw.setPosition(ClawPos.RIGHT_CLOSE);
-       }
+        if(position) {
+            leftClaw.setPosition(ClawPos.LEFT_OPEN);
+            rightClaw.setPosition(ClawPos.RIGHT_OPEN);
+        } else if(!position) {
+            leftClaw.setPosition(ClawPos.LEFT_CLOSE);
+            rightClaw.setPosition(ClawPos.RIGHT_CLOSE);
+        }
     }
 
     public enum Marcos {
@@ -229,29 +229,29 @@ public class RobotHardware
         switch(macro) {
             case INTAKEPOS:
             case DRIVEUNDERCENTERPOS:
-                clawArm.setTargetPosition(640);
+                clawArm.setTargetPosition(650);
                 clawArm.setPower(0.2);
-                clawWrist.setPosition(0.3972);
+                clawWrist.setPosition(0.319);
                 break;
             case ROW1AUTOPOS:
                 clawArm.setTargetPosition(561);
-                clawArm.setPower(0.2);
-                clawWrist.setPosition(0.26);
+                clawArm.setPower(0.227);
+                clawWrist.setPosition(0.239);
                 break;
             case ROW3POS:
                 clawArm.setTargetPosition(493);
-                clawArm.setPower(0.2);
-                clawWrist.setPosition(0.327);
+                clawArm.setPower(0.226);
+                clawWrist.setPosition(0.239);
                 break;
             case ROW5POS:
                 clawArm.setTargetPosition(393);
-                clawArm.setPower(0.2);
-                clawWrist.setPosition(0.445);
+                clawArm.setPower(0.227);
+                clawWrist.setPosition(0.239);
                 break;
             case ROW7MAXPOS:
                 clawArm.setTargetPosition(350);
-                clawArm.setPower(0.);
-                clawWrist.setPosition(0.52);
+                clawArm.setPower(0.2227);
+                clawWrist.setPosition(0.239);
                 break;
             case DEFUALTPOS:
                 clawArm.setTargetPosition(1);
@@ -261,7 +261,7 @@ public class RobotHardware
 
 
 
-    }
+        }
     }
 
 
